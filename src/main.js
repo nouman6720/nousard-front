@@ -24,6 +24,8 @@ import App from "./App.vue";
 import '@/assets/scss/white-dashboard.scss';
 import '@/assets/css/nucleo-icons.css';
 import "@/assets/demo/demo.css";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import GlobalComponents from "./globalComponents";
@@ -33,6 +35,9 @@ import Notify from "@/components/NotificationPlugin";
 import i18n from "./i18n"
 import SideBar from "@/components/SidebarPlugin";
 
+
+// import VueAxios from 'vue-axios';
+import axios from 'axios';
 
 Vue.config.productionTip = false;
 
@@ -53,6 +58,7 @@ Vue.use(GlobalDirectives);
 Vue.use(RTLPlugin);
 Vue.use(SideBar);
 Vue.use(Notify);
+Vue.use(axios);
 
 new Vue({
   router,

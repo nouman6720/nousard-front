@@ -22,15 +22,6 @@
           <p>الرموز</p>
         </template>
       </sidebar-link>
-      <sidebar-link to="/maps">
-        <i class="tim-icons icon-pin"></i>
-        <template v-if="!isRTL">
-          <p>Maps</p>
-        </template>
-        <template v-else>
-          <p>خرائط</p>
-        </template>
-      </sidebar-link>
       <sidebar-link to="/notifications">
         <i class="tim-icons icon-bell-55"></i>
         <template v-if="!isRTL">
@@ -49,16 +40,61 @@
           <p>ملف تعريفي للمستخدم</p>
         </template>
       </sidebar-link>
-      <sidebar-link to="/table">
-        <i class="tim-icons icon-puzzle-10"></i>
+      <sidebar-link to="/company">
+        <i class="fas fa-building"></i>
         <template v-if="!isRTL">
-          <p>Table List</p>
+          <p>Organization</p>
         </template>
         <template v-else>
           <p>قائمة الجدول</p>
         </template>
       </sidebar-link>
-      <sidebar-link to="/typography">
+      <sidebar-link to="/competency">
+        <i class="fas fa-building"></i>
+        <template v-if="!isRTL">
+          <p>Competency</p>
+        </template>
+        <template v-else>
+          <p></p>
+        </template>
+      </sidebar-link>
+      <sidebar-link to="/assessment_questions_management">
+        <i class="fas fa-building"></i>
+        <template v-if="!isRTL">
+          <p>Assessment Questions Management</p>
+        </template>
+        <template v-else>
+          <p></p>
+        </template>
+      </sidebar-link>
+      <sidebar-link to="/default_feedback_form">
+        <i class="fas fa-building"></i>
+        <template v-if="!isRTL">
+          <p>Default Feedback Form</p>
+        </template>
+        <template v-else>
+          <p></p>
+        </template>
+      </sidebar-link>
+      <sidebar-link to="/asseessment_form_question">
+        <i class="fas fa-building"></i>
+        <template v-if="!isRTL">
+          <p>Asseessment Form Question</p>
+        </template>
+        <template v-else>
+          <p></p>
+        </template>
+      </sidebar-link>
+      <!-- <sidebar-link to="/maps">
+        <i class="tim-icons icon-pin"></i>
+        <template v-if="!isRTL">
+          <p>Maps</p>
+        </template>
+        <template v-else>
+          <p>خرائط</p>
+        </template>
+      </sidebar-link> -->
+      <!-- <sidebar-link to="/typography">
         <i class="tim-icons icon-align-center"></i>
         <template v-if="!isRTL">
           <p>Typography</p>
@@ -66,8 +102,8 @@
         <template v-else>
           <p>طباعة</p>
         </template>
-      </sidebar-link>
-      <sidebar-link to="/dashboard?enableRTL=true">
+      </sidebar-link> -->
+      <!-- <sidebar-link to="/dashboard?enableRTL=true">
         <i class="tim-icons icon-world"></i>
         <template v-if="!isRTL">
           <p>RTL Support</p>
@@ -75,7 +111,7 @@
         <template v-else>
           <p>دعم RTL</p>
         </template>
-      </sidebar-link>
+      </sidebar-link> -->
     </side-bar>
     <sidebar-share :background-color.sync="backgroundColor"></sidebar-share>
 
@@ -114,7 +150,7 @@ export default{
   },
   data() {
     return {
-      backgroundColor: "green"
+      backgroundColor: "gray"
     };
   },
   computed: {
