@@ -12,7 +12,6 @@
               v-model="competency.competency_type"
               required
             >
-              <!-- @change="changeLocation" -->
               <option>Competency Types</option>
               <option
                 v-for="(option, key) in options"
@@ -56,7 +55,7 @@
               v-model="competency.description"
             />
           </div>
-          {{item}}
+          <!-- {{item}} -->
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>

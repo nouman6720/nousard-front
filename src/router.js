@@ -80,7 +80,7 @@ const routes = [
         component: Competency,
       },
       {
-        path: '/competency_create/:id',
+        path: 'competency_create',
         name: 'competency_create',
         component: CreateCompetency,
         props: true
