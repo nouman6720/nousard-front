@@ -2,13 +2,13 @@ const express = require('express')
 const serveStatic = require('serve-static')
 const path = require('path')
 
-const cors = require('cors');
+// const cors = require('cors');
 // const corsOptions ={
 //     origin:'http://localhost:3000', 
 //     credentials:true,            //access-control-allow-credentials:true
 //     optionSuccessStatus:200
 // }
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 const app = express()
 
