@@ -149,6 +149,10 @@ import ViewModel from "../components/ViewModel.vue";
 
 Vue.prototype.$http = axios;
 
+const instance = axios.create({
+    baseURL: 'https://nousard.herokuapp.com/'
+});
+
 const tableColumns = [
   "competency_title",
   "description",
@@ -157,6 +161,9 @@ const tableColumns = [
 ];
 
 export default {
+  install: function(Vue) {
+    Object.defineProperty(Vue.prototype, '$axios', { value: instance });
+  },
   components: {
     Card,
     BaseTable,
@@ -176,7 +183,7 @@ export default {
   },
   mounted: function () {
     axios
-      .get("http://127.0.0.1:8000/api/competency")
+      .get("api/competency")
       .then((response) => {
         this.info = response.data;
       })
@@ -188,7 +195,7 @@ export default {
   methods: {
     deleteCompetency(id) {
       axios
-        .delete("http://127.0.0.1:8000/api/competency/" + id)
+        .delete("api/competency/" + id)
         .then((response) => {
           // let i = this.products.map((data) => data.id).indexOf(id);
           // this.products.splice(i, 1);
