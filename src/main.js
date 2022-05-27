@@ -38,6 +38,7 @@ import SideBar from "@/components/SidebarPlugin";
 
 // import VueAxios from 'vue-axios';
 import axios from 'axios';
+import './axios.config.js';
 
 Vue.config.productionTip = false;
 

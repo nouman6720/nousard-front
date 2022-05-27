@@ -53,9 +53,9 @@
                 > -->
                 <router-link
                   :to="{
-                    path: 'competency_create',
-                    params: { userId: 'ghsgsh' },
-                    props: { id: hjfjhf },
+                    path: '/competency_create/' + item.id,
+                    name: 'competency_create',
+                    params: {item: item } ,
                   }"
                   class="btn btn-success"
                   >Edit</router-link

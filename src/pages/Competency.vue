@@ -49,15 +49,14 @@
                 </button> -->
                 <!-- <view-model v-if="isShowModal" /> -->
 
-                <button class="btn" @click="toggleModal">
+                <button class="btn" @click="toggleModal(info[index])">
                   <i class="fa fa-eye"></i>
                 </button>
 
                 <view-model
                   v-if="isShowModal"
                   @close="toggleModal"
-                  v-bind:item="item"
-                  :title="item.description"
+                  :item="item.id"
                 />
 
                 <button
@@ -91,15 +90,15 @@
             </tr>
           </tbody>
         </table>
-        <button class="btn" @click="toggleModal">
+        <!-- <button class="btn" @click="toggleModal">
           <i class="fa fa-eye"></i>
-        </button>
+        </button> -->
 
-        <view-model v-if="isShowModal" @close="toggleModal" />
+        <!-- <ViewModel v-if="isShowModal" @close="toggleModal" /> -->
         <!-- <base-button type="primary" block @click="notifyVue('top', 'center')">Top Center</base-button> -->
 
         <!-- Modal -->
-        <div
+        <!-- <div
           class="modal fade"
           id="exampleModal"
           tabindex="-1"
@@ -132,7 +131,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </card>
     </div>
   </div>
@@ -146,7 +145,7 @@ import BaseTable from "@/components/BaseTable";
 import Vue from "vue";
 import axios from "axios";
 import Card from "../components/Cards/Card.vue";
-import ViewModel from "@/components/ViewModel";
+import ViewModel from "../components/ViewModel.vue";
 
 Vue.prototype.$http = axios;
 
@@ -162,7 +161,6 @@ export default {
     Card,
     BaseTable,
     ViewModel,
-    // Card
   },
   data() {
     return {
@@ -173,6 +171,7 @@ export default {
       },
       info: this.info,
       isShowModal: false,
+      data_item: this.data_item,
     };
   },
   mounted: function () {
@@ -197,8 +196,10 @@ export default {
         });
     },
 
-    toggleModal() {
+    toggleModal(id) {
       this.isShowModal = !this.isShowModal;
+      this.data_item = id;
+      console.log(id);
     },
   },
 };

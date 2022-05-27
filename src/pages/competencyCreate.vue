@@ -56,6 +56,7 @@
               v-model="competency.description"
             />
           </div>
+          {{item}}
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>
@@ -69,6 +70,13 @@ import axios from "axios";
 
 Vue.prototype.$http = axios;
 export default {
+  props: {
+    item:{
+       type: Object,
+       default: {}
+     },
+  },
+  // props: ['item'],
   data() {
     return {
       competency: {},

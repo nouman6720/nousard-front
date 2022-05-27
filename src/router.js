@@ -80,11 +80,10 @@ const routes = [
         component: Competency,
       },
       {
-        path: 'competency_create',
-        name: 'create',
+        path: '/competency_create/:id',
+        name: 'competency_create',
         component: CreateCompetency,
-        // props: true
-        props: { newsletterPopup: false }
+        props: true
       },
       {
         path: 'asseessment_question_create',
@@ -115,7 +114,7 @@ const routes = [
         path: 'company',
         name: 'Company Managment',
         component: Company,
-        props: true 
+        props: true
       },
       {
         path: "company_create",

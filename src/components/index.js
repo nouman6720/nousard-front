@@ -11,6 +11,7 @@ import Modal from "./Modal";
 import CloseButton from "./CloseButton";
 import DropDown from "./Dropdown.vue";
 import Notifications from "./NotificationPlugin/index";
+import ViewModel from "./ViewModel";
 
 let components = {
   Card,
@@ -25,7 +26,8 @@ let components = {
   Modal,
   CloseButton,
   DropDown,
-  Notifications
+  Notifications,
+  ViewModel
 };
 
 export{
@@ -41,5 +43,6 @@ export{
   Modal,
   CloseButton,
   DropDown,
-  Notifications
+  Notifications,
+  ViewModel
 }

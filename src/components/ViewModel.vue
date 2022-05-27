@@ -20,8 +20,7 @@
             <label>Competency Title</label>
           </div>
         <div>
-          {{ title }}
-          {{item}}
+          {{ item }}
         </div>
             
             <div class="form-group">
@@ -51,25 +50,13 @@
 
 <script>
 export default {
-  name: "viewmodel",
-  props: {
-    item: Array,
-    title: String,
-    type: String,
-    // icon: String,
-    //  data:{
-    //    type: Array,
-    //    default: () => []
-    //  },
-    //  data:{
-    //    type: String,
-    //    default: ''
-    //  },
-    columns:{
-       type: Array,
-       default: ()=>[]
-     }
-  },
+  // props: {
+  //   item:{
+  //      type: Object,
+  //      default: {}
+  //    },
+  // },
+  props: ['item'],
   methods: {
     handleClose() {
       this.$emit("close");
