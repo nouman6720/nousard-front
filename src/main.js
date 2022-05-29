@@ -34,23 +34,22 @@ import RTLPlugin from "./RTLPlugin";
 import Notify from "@/components/NotificationPlugin";
 import i18n from "./i18n"
 import SideBar from "@/components/SidebarPlugin";
-
-
-// import VueAxios from 'vue-axios';
 import axios from 'axios';
-import './axios.config.js';
+import routes from "./router";
+
+axios.defaults.baseURL = 'https://nousard.herokuapp.com/';
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
 
 Vue.config.productionTip = false;
 
 // router setup
-import routes from "./router";
 
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
   linkExactActiveClass: "active"
 });
-
+Vue.prototype.$http = axios;
 Vue.use(VueRouter);
 Vue.use(SocialSharing);
 Vue.use(VueGitHubButtons, { useCache: true });

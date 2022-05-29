@@ -1,10 +1,10 @@
 import DashboardLayout from "@/pages/Layout/DashboardLayout.vue";
 
-import Dashboard from "@/pages/Dashboard.vue";
-import Icons from "@/pages/Icons.vue";
+// import Icons from "@/pages/Icons.vue";
 // import Maps from "@/pages/Maps.vue";
 // import Typography from "@/pages/Typography.vue";
 // import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
+import Dashboard from "@/pages/Dashboard.vue";
 import Notifications from "@/pages/Notifications.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
@@ -25,9 +25,9 @@ import LogInPage from "@/pages/LogInPage.vue";
 
 const routes = [
   {
-    // path: "/logIn",
-    // name: "LogInPage",
-    // component: LogInPage,
+    path: "/logIn",
+    name: "LogInPage",
+    component: LogInPage,
     
     path: "/",
     name: "dashboard",
@@ -39,11 +39,11 @@ const routes = [
         name: "Dashboard",
         component: Dashboard,
       },
-      {
-        path: "icons",
-        name: "Icons",
-        component: Icons,
-      },
+      // {
+      //   path: "icons",
+      //   name: "Icons",
+      //   component: Icons,
+      // },
       // {
       //   path: "maps",
       //   name: "Maps",
@@ -80,7 +80,7 @@ const routes = [
         component: Competency,
       },
       {
-        path: '/competency_create/:id',
+        path: 'competency_create',
         name: 'competency_create',
         component: CreateCompetency,
         props: true

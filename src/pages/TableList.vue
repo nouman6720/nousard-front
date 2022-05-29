@@ -39,10 +39,7 @@ import {
 } from "@/components/index";
 
 import BaseTable from "@/components/BaseTable";
-import Vue from 'vue'
 import axios from 'axios'
-
-Vue.prototype.$http = axios;
 
 
 const tableColumns = ["Name", "Website", "address1","City", "Country", "Email"];
@@ -118,7 +115,7 @@ export default{
   },
   mounted: function() {
       axios
-      .get('http://127.0.0.1:8000/api/organization')
+      .get('api/organization')
       .then(response => {
         this.info = response.data
       })

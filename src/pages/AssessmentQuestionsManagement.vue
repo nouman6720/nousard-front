@@ -37,11 +37,7 @@ import {
 } from "@/components/index";
 
 import BaseTable from "@/components/BaseTable";
-import Vue from 'vue'
 import axios from 'axios'
-
-Vue.prototype.$http = axios;
-
 
 const tableColumns = ["question_text", "Org_id", "response_type"];
 
@@ -63,7 +59,7 @@ export default{
   },
   mounted: function() {
         axios
-      .get('http://127.0.0.1:8000/api/assessment/question')
+      .get('api/assessment/question')
       .then(response => {
         this.info = response.data
       })
@@ -75,7 +71,7 @@ export default{
 methods: {
     // deleteCompetency(id) {
     //   axios
-    //     .delete("http://127.0.0.1:8000/api/competency/" + id)
+    //     .delete("api/assessment/question/" + id)
     //     .then((response) => {
     //       // let i = this.products.map((data) => data.id).indexOf(id);
     //       // this.products.splice(i, 1);

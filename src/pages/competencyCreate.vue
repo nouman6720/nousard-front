@@ -12,7 +12,6 @@
               v-model="competency.competency_type"
               required
             >
-              <!-- @change="changeLocation" -->
               <option>Competency Types</option>
               <option
                 v-for="(option, key) in options"
@@ -56,7 +55,7 @@
               v-model="competency.description"
             />
           </div>
-          {{item}}
+          <!-- {{item}} -->
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>
@@ -65,10 +64,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
 
-Vue.prototype.$http = axios;
 export default {
   props: {
     item:{
@@ -96,7 +93,7 @@ export default {
     addCompetency() {
       this.com["competency"] = this.competency;
       axios
-        .post("http://localhost:8000/api/competency", this.com)
+        .post("api/competency", this.com)
         .then((response) => this.$router.push({ name: "Competency" }))
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
@@ -106,7 +103,7 @@ export default {
       if (type == 3) {
         this.isShowSubTechnical = true;
         axios
-          .get("http://127.0.0.1:8000/api/competency/sub_technical/" + this.id)
+          .get("api/competency/sub_technical/" + this.id)
           .then((response) => {
             this.info = response.data;
           })

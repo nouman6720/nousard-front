@@ -34,11 +34,12 @@
                 {{ item.country }}
               </td>
               <td>
-                <button class="btn" @click="toggleModal">
+                <!-- view -->
+                <!-- <button class="btn" @click="toggleModal">
                   <i class="fa fa-eye"></i>
                 </button>
 
-                <!-- <view-model
+                <view-model
                   v-if="isShowModal"
                   @close="toggleModal"
                   v-bind:item="item"
@@ -71,11 +72,8 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import axios from "axios";
 import Card from "../../components/Cards/Card.vue";
-
-Vue.prototype.$http = axios;
 
 export default {
   components: {
@@ -89,7 +87,7 @@ export default {
   },
   mounted: function () {
     axios
-      .get("http://127.0.0.1:8000/api/organization")
+      .get("api/organization")
       .then((response) => {
         this.info = response.data;
       })
@@ -102,7 +100,7 @@ export default {
     deleteCompany(id) {
       debugger;
       axios
-        .delete("http://127.0.0.1:8000/api/organization/" + id)
+        .delete("api/organization/" + id)
         .then((response) => {
           // let i = this.products.map((data) => data.id).indexOf(id);
           // this.products.splice(i, 1);

@@ -33,10 +33,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
 
-Vue.prototype.$http = axios;
 export default {
   data() {
     return {
@@ -56,7 +54,7 @@ export default {
       this.com["assessment_form"] = this.data;
       this.com["assessment_form"]["org_id"] = 1;
       axios
-        .post("http://localhost:8000/api/assessment/form", this.com)
+        .post("api/assessment/form", this.com)
         .then((response) =>
           this.$router.push({ name: "Default Feedback Form" })
         )
@@ -66,7 +64,7 @@ export default {
     // getForms() {
     //   debugger;
     //   axios
-    //     .get("http://127.0.0.1:8000/api/assessment/form")
+    //     .get("api/assessment/form")
     //     .then((response) => {
     //       this.info = response.data;
     //     })

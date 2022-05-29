@@ -13,15 +13,6 @@
           <p>لوحة القيادة</p>
         </template>
       </sidebar-link>
-      <sidebar-link to="/icons">
-        <i class="tim-icons icon-atom"></i>
-        <template v-if="!isRTL">
-          <p>Icons</p>
-        </template>
-        <template v-else>
-          <p>الرموز</p>
-        </template>
-      </sidebar-link>
       <sidebar-link to="/notifications">
         <i class="tim-icons icon-bell-55"></i>
         <template v-if="!isRTL">
@@ -85,6 +76,15 @@
           <p></p>
         </template>
       </sidebar-link>
+      <!-- <sidebar-link to="/icons">
+        <i class="tim-icons icon-atom"></i>
+        <template v-if="!isRTL">
+          <p>Icons</p>
+        </template>
+        <template v-else>
+          <p>الرموز</p>
+        </template>
+      </sidebar-link> -->
       <!-- <sidebar-link to="/maps">
         <i class="tim-icons icon-pin"></i>
         <template v-if="!isRTL">

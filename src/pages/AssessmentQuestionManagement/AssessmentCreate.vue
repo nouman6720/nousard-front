@@ -47,10 +47,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
 
-Vue.prototype.$http = axios;
 export default {
   data() {
     return {
@@ -66,7 +64,7 @@ export default {
   mounted: function () {
       debugger
      axios
-        .get("http://127.0.0.1:8000/api/competency")
+        .get("api/competency")
         .then((response) => {
           this.competencies = response.data;
         })
@@ -81,7 +79,7 @@ export default {
       this.com["assessment_question"] = this.data;
       this.com["assessment_question"]['org_id'] = 1;
       axios
-        .post("http://localhost:8000/api/assessment/question", this.com)
+        .post("api/assessment/question", this.com)
         .then((response) => this.$router.push({ name: "Assessment Questions Management" }))
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));

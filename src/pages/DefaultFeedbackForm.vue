@@ -31,9 +31,9 @@
               </td>
               <td>
 
-                <button class="btn" @click="toggleModal"><i class="fa fa-eye"></i></button>
+                <!-- <button class="btn" @click="toggleModal"><i class="fa fa-eye"></i></button>
 
-                <view-model v-if="isShowModal" @close="toggleModal" v-bind:item=item :title="item.description"/>
+                <view-model v-if="isShowModal" @close="toggleModal" v-bind:item=item :title="item.description"/> -->
 
                 <button
                   class="btn btn-danger"
@@ -56,12 +56,8 @@
   </div>
 </template>
 <script>
-
-import Vue from "vue";
 import axios from "axios";
 import Card from "../components/Cards/Card.vue";
-
-Vue.prototype.$http = axios;
 
 export default {
   components: {
@@ -76,7 +72,7 @@ export default {
   },
   mounted: function () {
     axios
-      .get("http://127.0.0.1:8000/api/assessment/form")
+      .get("api/assessment/form")
       .then((response) => {
         this.info = response.data;
       })
@@ -88,7 +84,7 @@ export default {
   methods: {
     deleteFeedbackForm(id) {
       axios
-        .delete("http://127.0.0.1:8000/api/assessment/form/" + id)
+        .delete("api/assessment/form/" + id)
         .then((response) => {
           // let i = this.products.map((data) => data.id).indexOf(id);
           // this.products.splice(i, 1);

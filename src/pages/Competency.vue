@@ -142,12 +142,9 @@
 // } from "@/components/index";
 
 import BaseTable from "@/components/BaseTable";
-import Vue from "vue";
 import axios from "axios";
 import Card from "../components/Cards/Card.vue";
 import ViewModel from "../components/ViewModel.vue";
-
-Vue.prototype.$http = axios;
 
 const tableColumns = [
   "competency_title",
@@ -176,7 +173,7 @@ export default {
   },
   mounted: function () {
     axios
-      .get("http://127.0.0.1:8000/api/competency")
+      .get("api/competency")
       .then((response) => {
         this.info = response.data;
       })
@@ -188,7 +185,7 @@ export default {
   methods: {
     deleteCompetency(id) {
       axios
-        .delete("http://127.0.0.1:8000/api/competency/" + id)
+        .delete("api/competency/" + id)
         .then((response) => {
           // let i = this.products.map((data) => data.id).indexOf(id);
           // this.products.splice(i, 1);
