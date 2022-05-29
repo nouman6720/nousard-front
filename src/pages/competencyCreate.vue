@@ -64,10 +64,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
 
-Vue.prototype.$http = axios;
 export default {
   props: {
     item:{
@@ -95,7 +93,7 @@ export default {
     addCompetency() {
       this.com["competency"] = this.competency;
       axios
-        .post("https://nousard.herokuapp.com/api/competency", this.com)
+        .post("api/competency", this.com)
         .then((response) => this.$router.push({ name: "Competency" }))
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
@@ -105,7 +103,7 @@ export default {
       if (type == 3) {
         this.isShowSubTechnical = true;
         axios
-          .get("https://nousard.herokuapp.com/api/competency/sub_technical/" + this.id)
+          .get("api/competency/sub_technical/" + this.id)
           .then((response) => {
             this.info = response.data;
           })

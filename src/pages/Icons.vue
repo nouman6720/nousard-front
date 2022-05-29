@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="content">
     <card>
       <template slot="header">
@@ -136,4 +136,4 @@ export default{
 };
 </script>
 <style>
-</style>
+</style> -->

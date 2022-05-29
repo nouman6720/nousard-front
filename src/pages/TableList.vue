@@ -118,7 +118,7 @@ export default{
   },
   mounted: function() {
       axios
-      .get('http://127.0.0.1:8000/api/organization')
+      .get('api/organization')
       .then(response => {
         this.info = response.data
       })

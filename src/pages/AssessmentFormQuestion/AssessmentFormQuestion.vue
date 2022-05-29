@@ -28,7 +28,9 @@
                 {{ item.question_id }}
               </td>
               <td>
-                <button class="btn" @click="toggleModal">
+
+                <!-- view -->
+                <!-- <button class="btn" @click="toggleModal">
                   <i class="fa fa-eye"></i>
                 </button>
 
@@ -37,7 +39,7 @@
                   @close="toggleModal"
                   v-bind:item="item"
                   :title="item.description"
-                />
+                /> -->
 
                 <button
                   class="btn btn-danger"
@@ -80,7 +82,7 @@ export default {
   mounted: function () {
       debugger
      axios
-        .get("http://127.0.0.1:8000/api/form/question")
+        .get("api/form/question")
         .then((response) => {
           this.info = response.data;
         })
@@ -94,7 +96,7 @@ export default {
     async myMethod() {
       debugger
   let response1 = await axios
-  .get("http://127.0.0.1:8000/api/form/question")
+  .get("api/form/question")
         .then((response) => {
           this.info = response.data;
         })
@@ -105,7 +107,7 @@ export default {
 },
     deleteCompetency(id) {
       axios
-        .delete("http://127.0.0.1:8000/api/form/question/" + id)
+        .delete("api/form/question/" + id)
         .then((response) => {
           // let i = this.products.map((data) => data.id).indexOf(id);
           // this.products.splice(i, 1);

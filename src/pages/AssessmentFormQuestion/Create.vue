@@ -61,7 +61,7 @@ export default {
   },
   mounted: function () {
       axios
-        .get("http://127.0.0.1:8000/api/assessment/form")
+        .get("api/assessment/form")
         .then((response) => {
           this.assessment_form = response.data;
         })
@@ -70,7 +70,7 @@ export default {
           this.errored = true;
         });
         axios
-        .get("http://127.0.0.1:8000/api/assessment/question")
+        .get("api/assessment/question")
         .then((response) => {
           this.assessment_question = response.data;
         })

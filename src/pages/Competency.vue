@@ -142,16 +142,9 @@
 // } from "@/components/index";
 
 import BaseTable from "@/components/BaseTable";
-import Vue from "vue";
 import axios from "axios";
 import Card from "../components/Cards/Card.vue";
 import ViewModel from "../components/ViewModel.vue";
-
-Vue.prototype.$http = axios;
-
-const instance = axios.create({
-    baseURL: 'https://nousard.herokuapp.com/'
-});
 
 const tableColumns = [
   "competency_title",
@@ -161,9 +154,6 @@ const tableColumns = [
 ];
 
 export default {
-  install: function(Vue) {
-    Object.defineProperty(Vue.prototype, '$axios', { value: instance });
-  },
   components: {
     Card,
     BaseTable,
