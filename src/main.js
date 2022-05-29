@@ -49,7 +49,7 @@ const router = new VueRouter({
   routes, // short for routes: routes
   linkExactActiveClass: "active"
 });
-
+Vue.prototype.$http = axios;
 Vue.use(VueRouter);
 Vue.use(SocialSharing);
 Vue.use(VueGitHubButtons, { useCache: true });

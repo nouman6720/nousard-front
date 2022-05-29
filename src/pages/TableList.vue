@@ -39,10 +39,7 @@ import {
 } from "@/components/index";
 
 import BaseTable from "@/components/BaseTable";
-import Vue from 'vue'
 import axios from 'axios'
-
-Vue.prototype.$http = axios;
 
 
 const tableColumns = ["Name", "Website", "address1","City", "Country", "Email"];

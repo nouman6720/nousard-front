@@ -61,12 +61,8 @@
   </div>
 </template>
 <script>
-
-import Vue from "vue";
 import axios from "axios";
 import Card from "../../components/Cards/Card.vue";
-
-Vue.prototype.$http = axios;
 
 export default {
   components: {

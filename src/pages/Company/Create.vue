@@ -60,10 +60,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
 
-Vue.prototype.$http = axios;
 export default {
   data() {
     return {
@@ -76,7 +74,7 @@ export default {
       debugger;
       this.com["org"] = this.data;
       axios
-        .post("http://localhost:8000/api/organization", this.com)
+        .post("api/organization", this.com)
         .then((response) =>
           this.$router.push({ name: "Company Managment" })
         )
