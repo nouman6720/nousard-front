@@ -143,8 +143,8 @@
 
 import BaseTable from "@/components/BaseTable";
 import axios from "axios";
-import Card from "../components/Cards/Card.vue";
-import ViewModel from "../components/ViewModel.vue";
+import Card from "../../components/Cards/Card.vue";
+import ViewModel from "../../components/ViewModel.vue";
 
 const tableColumns = [
   "competency_title",

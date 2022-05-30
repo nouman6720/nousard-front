@@ -8,15 +8,23 @@ import Dashboard from "@/pages/Dashboard.vue";
 import Notifications from "@/pages/Notifications.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
-import CreateCompetency from "@/pages/competencyCreate.vue";
-import AssessmentQuestionsManagement from "@/pages/AssessmentQuestionsManagement.vue";
-import Competency from "@/pages/Competency.vue";
+
+import AssessmentQuestionsManagement from "@/pages/AssessmentQuestionManagement/AssessmentQuestionsManagement.vue";
 import AssessmentQuestionCreate from "@/pages/AssessmentQuestionManagement/AssessmentCreate.vue";
-import DefaultFeedbackForm from "@/pages/DefaultFeedbackForm.vue";
+import AssessmentQuestionEdit from "@/pages/AssessmentQuestionManagement/AssessmentCreate.vue";
+
+
+import Competency from "@/pages/Competency/Competency.vue";
+import CreateCompetency from "@/pages/Competency/competencyCreate.vue";
+import EditCompetency from "@/pages/Competency/competencyCreate.vue";
+
+import DefaultFeedbackForm from "@/pages/FeedbackForm/DefaultFeedbackForm.vue";
 import FeedbackFormCreate from "@/pages/FeedbackForm/Create.vue";
+import EditFeedbackForm from "@/pages/FeedbackForm/Create.vue";
 
 import AssessmentFormQuestion from "@/pages/AssessmentFormQuestion/AssessmentFormQuestion.vue";
 import AssessmentFormQuestionCreate from "@/pages/AssessmentFormQuestion/Create.vue";
+import EditAssessmentFormQuestion from "@/pages/AssessmentFormQuestion/Create.vue";
 
 import Company from "@/pages/Company/Company.vue";
 import CompanyCreate from "@/pages/Company/Create.vue";

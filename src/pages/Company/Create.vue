@@ -75,7 +75,7 @@ export default {
       axios
         .post("api/organization", this.com)
         .then((response) =>
-          this.$router.push({ name: "Company Managment" })
+          this.$router.push({ name: "Company Management" })
         )
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
