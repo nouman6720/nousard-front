@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <form @submit.prevent="addAssessmentFormQuestion">
           <div class="form-group">
-            <label>Asseessment Question</label>
+            <label>Assessment Question</label>
             <select
               class="form-control"
               v-model="data.question_id"
