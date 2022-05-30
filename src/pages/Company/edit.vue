@@ -1,58 +1,34 @@
 <template>
   <div class="content">
-    <h3 class="text-center" style="color: black">Add New Company</h3>
+    <h3 class="text-center" style="color: black">Update Company</h3>
     <div class="row" style="margin-left: 30%; color: black">
       <div class="col-md-6">
         <form @submit.prevent="updateCompany">
           <div class="form-group">
             <label>Company Title</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="data.name"
-            />
+            <input type="text" class="form-control" v-model="each.name" />
           </div>
           <div class="form-group">
             <label>Website</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="data.website"
-            />
+            <input type="text" class="form-control" v-model="each.website" />
           </div>
           <div class="form-group">
             <label>Phone</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="data.phone1"
-            />
+            <input type="text" class="form-control" v-model="each.phone1" />
           </div>
           <div class="form-group">
             <label>Address</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="data.address1"
-            />
+            <input type="text" class="form-control" v-model="each.address1" />
           </div>
           <div class="form-group">
             <label>City</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="data.city"
-            />
+            <input type="text" class="form-control" v-model="each.city" />
           </div>
           <div class="form-group">
             <label>Country</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="data.country"
-            />
+            <input type="text" class="form-control" v-model="each.country" />
           </div>
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
         </form>
       </div>
     </div>
@@ -63,7 +39,7 @@
 import axios from "axios";
 
 export default {
-    props: ['item'],
+  props: ["each"],
   data() {
     return {
       data: {},
@@ -72,20 +48,13 @@ export default {
   },
   methods: {
     updateCompany() {
-      debugger;
-      this.com["org"] = this.data;
+      this.com["org"] = this.each;
       axios
-        .post("api/organization", this.com)
-        .then((response) =>
-          this.$router.push({ name: "Company Managment" })
-        )
+        .patch(`api/organization/` + this.each.id, this.com)
+        .then((response) => this.$router.push({ name: "Company Management" }))
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
     },
-    // getForms() {
-    //   debugger;
-
-    // },
   },
 };
 </script>

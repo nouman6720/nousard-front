@@ -1,11 +1,11 @@
 <template>
   <div class="content">
     <h3 class="text-center" style="color: black">
-      Add Question in Feedback Form
+      Update Assessment Form Question
     </h3>
     <div class="row" style="margin-left: 30%; color: black">
       <div class="col-md-6">
-        <form @submit.prevent="addAssessmentFormQuestion">
+        <form @submit.prevent="updateAssessmentFormQuestion">
           <div class="form-group">
             <label>Assessment Question</label>
             <select class="form-control" v-model="data.question_id" required>
@@ -32,6 +32,7 @@
               </option>
             </select>
           </div>
+          {{ assessment_form }}
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>
@@ -43,6 +44,7 @@
 import axios from "axios";
 
 export default {
+  props: ["assessment_form"],
   data() {
     return {
       data: {},
@@ -72,11 +74,10 @@ export default {
       });
   },
   methods: {
-    addAssessmentFormQuestion() {
-      debugger;
+    updateAssessmentFormQuestion() {
       this.com["assessment_form_question"] = this.data;
       axios
-        .post("api/form/question", this.com)
+        .patch("api/form/question/" + this.data.id, this.com)
         .then((response) =>
           this.$router.push({ name: "Assessment Form Question" })
         )

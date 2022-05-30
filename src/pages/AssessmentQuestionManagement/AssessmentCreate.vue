@@ -28,7 +28,6 @@
           <div class="form-group">
             <label>Question Response Type</label>
             <select class="form-control" v-model="data.response_type" required>
-              <!-- @change="changeLocation" -->
               <option>Choose Province</option>
               <option
                 v-for="(option, key) in options"
@@ -62,25 +61,27 @@ export default {
     };
   },
   mounted: function () {
-      debugger
-     axios
-        .get("api/competency")
-        .then((response) => {
-          this.competencies = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        });
+    debugger;
+    axios
+      .get("api/competency")
+      .then((response) => {
+        this.competencies = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      });
   },
   methods: {
     addAssessmentQuestion() {
-      debugger
+      debugger;
       this.com["assessment_question"] = this.data;
-      this.com["assessment_question"]['org_id'] = 1;
+      this.com["assessment_question"]["org_id"] = 1;
       axios
         .post("api/assessment/question", this.com)
-        .then((response) => this.$router.push({ name: "Assessment Questions Management" }))
+        .then((response) =>
+          this.$router.push({ name: "Assessment Questions Management" })
+        )
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
     },

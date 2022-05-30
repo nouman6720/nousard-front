@@ -8,18 +8,27 @@ import Dashboard from "@/pages/Dashboard.vue";
 import Notifications from "@/pages/Notifications.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
-import CreateCompetency from "@/pages/competencyCreate.vue";
-import AssessmentQuestionsManagement from "@/pages/AssessmentQuestionsManagement.vue";
-import Competency from "@/pages/Competency.vue";
-import AsseessmentQuestionCreate from "@/pages/AssessmentQuestionManagement/AssessmentCreate.vue";
-import DefaultFeedbackForm from "@/pages/DefaultFeedbackForm.vue";
-import FeedbackFormCreate from "@/pages/FeedbackForm/Create.vue";
 
-import AsseessmentFormQuestion from "@/pages/AssessmentFormQuestion/AssessmentFormQuestion.vue";
-import AsseessmentFormQuestionCreate from "@/pages/AssessmentFormQuestion/Create.vue";
+import AssessmentQuestionsManagement from "@/pages/AssessmentQuestionManagement/AssessmentQuestionsManagement.vue";
+import AssessmentQuestionCreate from "@/pages/AssessmentQuestionManagement/AssessmentCreate.vue";
+import EditAssessmentQuestion from "@/pages/AssessmentQuestionManagement/Edit.vue";
+
+
+import Competency from "@/pages/Competency/Competency.vue";
+import CreateCompetency from "@/pages/Competency/competencyCreate.vue";
+import EditCompetency from "@/pages/Competency/Edit.vue";
+
+import DefaultFeedbackForm from "@/pages/FeedbackForm/DefaultFeedbackForm.vue";
+import FeedbackFormCreate from "@/pages/FeedbackForm/Create.vue";
+import EditFeedbackForm from "@/pages/FeedbackForm/Edit.vue";
+
+import AssessmentFormQuestion from "@/pages/AssessmentFormQuestion/AssessmentFormQuestion.vue";
+import AssessmentFormQuestionCreate from "@/pages/AssessmentFormQuestion/Create.vue";
+import EditAssessmentFormQuestion from "@/pages/AssessmentFormQuestion/Edit.vue";
 
 import Company from "@/pages/Company/Company.vue";
 import CompanyCreate from "@/pages/Company/Create.vue";
+import CompanyEdit from "@/pages/Company/Edit.vue";
 
 import LogInPage from "@/pages/LogInPage.vue";
 
@@ -28,7 +37,7 @@ const routes = [
     path: "/logIn",
     name: "LogInPage",
     component: LogInPage,
-    
+
     path: "/",
     name: "dashboard",
     component: DashboardLayout,
@@ -49,7 +58,7 @@ const routes = [
       //   name: "Maps",
       //   component: Maps,
       // },
-            // {
+      // {
       //   path: "typography",
       //   name: "Typography",
       //   component: Typography,
@@ -69,11 +78,8 @@ const routes = [
         name: "Organization",
         component: TableList,
       },
-      {
-        path: "assessment_questions_management",
-        name: "Assessment Questions Management",
-        component: AssessmentQuestionsManagement,
-      },
+      // Competency
+
       {
         path: "competency",
         name: "Competency",
@@ -83,12 +89,36 @@ const routes = [
         path: 'competency_create',
         name: 'competency_create',
         component: CreateCompetency,
-        props: true
       },
       {
-        path: 'asseessment_question_create',
+        path: 'competency_edit',
+        name: 'Competency Edit',
+        component: EditCompetency,
+        props: true
+      },
+      // Assessment Question
+
+      {
+        path: "assessment_questions_management",
+        name: "Assessment Questions Management",
+        component: AssessmentQuestionsManagement,
+      },
+      {
+        path: 'assessment_question_create',
         name: 'Assessment Question Create',
-        component: AsseessmentQuestionCreate
+        component: AssessmentQuestionCreate
+      },
+      {
+        path: 'assessment_question_edit',
+        name: 'Assessment Question Edit',
+        component: EditAssessmentQuestion
+      },
+      // Feedback Form
+
+      {
+        path: "default_feedback_form",
+        name: "Default Feedback Form",
+        component: DefaultFeedbackForm,
       },
       {
         path: 'feedback_form_create',
@@ -96,23 +126,34 @@ const routes = [
         component: FeedbackFormCreate
       },
       {
-        path: "default_feedback_form",
-        name: "Default Feedback Form",
-        component: DefaultFeedbackForm,
+        path: 'feedback_form_edit',
+        name: 'Feedback Form Edit',
+        component: EditFeedbackForm,
+        props: true
+      },
+      // Assessment Form Question
+
+      {
+        path: 'assessment_form_question',
+        name: 'Assessment Form Question',
+        component: AssessmentFormQuestion
       },
       {
-        path: 'asseessment_form_question',
-        name: 'Asseessment Form Question',
-        component: AsseessmentFormQuestion
+        path: "assessment_form_question_create",
+        name: "Assessment Form Question Create",
+        component: AssessmentFormQuestionCreate,
       },
       {
-        path: "asseessment_form_question_create",
-        name: "Asseessment Form Question Create",
-        component: AsseessmentFormQuestionCreate,
+        path: "assessment_form_question_edit",
+        name: "Assessment Form Question Edit",
+        component: EditAssessmentFormQuestion,
+        props: true
       },
+      //// Company
+
       {
         path: 'company',
-        name: 'Company Managment',
+        name: 'Company Management',
         component: Company,
         props: true
       },
@@ -120,6 +161,12 @@ const routes = [
         path: "company_create",
         name: "Company Create",
         component: CompanyCreate,
+      },
+      {
+        path: "company_edit",
+        name: "Company Edit",
+        component: CompanyEdit,
+        props: true
       },
 
     ],

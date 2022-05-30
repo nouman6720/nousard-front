@@ -1,9 +1,9 @@
 <template>
   <div class="content">
-    <h3 class="text-center" style="color: black">Add Competency</h3>
+    <h3 class="text-center" style="color: black">Update Competency</h3>
     <div class="row" style="margin-left: 30%; color: black">
       <div class="col-md-6">
-        <form @submit.prevent="addCompetency">
+        <form @submit.prevent="updateCompetency">
           <div class="form-group">
             <label>Competency type</label>
             <select
@@ -55,8 +55,8 @@
               v-model="competency.description"
             />
           </div>
-          <!-- {{item}} -->
-          <button type="submit" class="btn btn-primary">Create</button>
+          {{ each }}
+          <button type="submit" class="btn btn-primary">Edit</button>
         </form>
       </div>
     </div>
@@ -67,13 +67,13 @@
 import axios from "axios";
 
 export default {
-  props: {
-    item:{
-       type: Object,
-       default: {}
-     },
-  },
-  // props: ['item'],
+  //   competency: {
+  //     each: {
+  //       type: Object,
+  //       default: {},
+  //     },
+  //   },
+  props: ["competency"],
   data() {
     return {
       competency: {},
@@ -86,14 +86,14 @@ export default {
       com: {},
       isShowSubTechnical: false,
       info: this.info,
-      id: 2
+      id: 2,
     };
   },
   methods: {
-    addCompetency() {
+    updateCompetency() {
       this.com["competency"] = this.competency;
       axios
-        .post("api/competency", this.com)
+        .patch("api/competency/" + this.competency.id, this.com)
         .then((response) => this.$router.push({ name: "Competency" }))
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));

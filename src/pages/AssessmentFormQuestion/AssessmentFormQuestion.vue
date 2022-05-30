@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="float-right">
         <router-link
-          to="asseessment_form_question_create"
+          to="assessment_form_question_create"
           class="btn btn-success"
           >Add</router-link
         >
@@ -28,7 +28,6 @@
                 {{ item.question_id }}
               </td>
               <td>
-
                 <!-- view -->
                 <!-- <button class="btn" @click="toggleModal">
                   <i class="fa fa-eye"></i>
@@ -43,13 +42,22 @@
 
                 <button
                   class="btn btn-danger"
-                  @click="deleteCompetency(item.id)"
+                  @click="deleteFormQuestion(item.id)"
                 >
                   <i class="fa fa-trash"></i>
                 </button>
-                <router-link to="competency_create" class="btn btn-success"
+
+                <!-- Edit Assessment Form Question -->
+
+                <!-- <router-link
+                  :to="{
+                    path: '/assessment_form_question_edit/',
+                    name: 'Assessment Form Question Edit',
+                    params: { assessment_form: item },
+                  }"
+                  class="btn btn-success"
                   >Edit</router-link
-                >
+                > -->
 
                 <div class="btn-group" role="group"></div>
               </td>
@@ -67,7 +75,6 @@ import Card from "../../components/Cards/Card.vue";
 export default {
   components: {
     Card,
-    // Card
   },
   data() {
     return {
@@ -76,8 +83,20 @@ export default {
     };
   },
   mounted: function () {
-      debugger
-     axios
+    axios
+      .get("api/form/question")
+      .then((response) => {
+        this.info = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      });
+    this.myMethod();
+  },
+  methods: {
+    async myMethod() {
+      let response1 = await axios
         .get("api/form/question")
         .then((response) => {
           this.info = response.data;
@@ -86,29 +105,11 @@ export default {
           console.log(error);
           this.errored = true;
         });
-        this.myMethod();
-  },
-  methods: {
-    async myMethod() {
-      debugger
-  let response1 = await axios
-  .get("api/form/question")
-        .then((response) => {
-          this.info = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        });
-},
-    deleteCompetency(id) {
-      axios
-        .delete("api/form/question/" + id)
-        .then((response) => {
-          // let i = this.products.map((data) => data.id).indexOf(id);
-          // this.products.splice(i, 1);
-          this.info = response.data.data;
-        });
+    },
+    deleteFormQuestion(id) {
+      axios.delete("api/form/question/" + id).then((response) => {
+        this.info = response.data.data;
+      });
     },
 
     toggleModal() {

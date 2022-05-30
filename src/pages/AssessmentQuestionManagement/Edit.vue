@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <h3 class="text-center" style="color: black">
-      Add Question in Feedback Form
+      Update Question in Feedback Form
     </h3>
     <div class="row" style="margin-left: 30%; color: black">
       <div class="col-md-6">

@@ -30,23 +30,23 @@
                 {{ item.user_id }}
               </td>
               <td>
-
-                <!-- <button class="btn" @click="toggleModal"><i class="fa fa-eye"></i></button>
-
-                <view-model v-if="isShowModal" @close="toggleModal" v-bind:item=item :title="item.description"/> -->
-
                 <button
                   class="btn btn-danger"
                   @click="deleteFeedbackForm(item.id)"
                 >
                   <i class="fa fa-trash"></i>
                 </button>
-                <router-link to="competency_create" class="btn btn-success"
+
+                <router-link
+                  :to="{
+                    path: '/feedback_form_edit/',
+                    name: 'Feedback Form Edit',
+                    params: { data: item },
+                  }"
+                  class="btn btn-success"
                   >Edit</router-link
                 >
-
-                <div class="btn-group" role="group">
-                </div>
+                <div class="btn-group" role="group"></div>
               </td>
             </tr>
           </tbody>
@@ -57,7 +57,7 @@
 </template>
 <script>
 import axios from "axios";
-import Card from "../components/Cards/Card.vue";
+import Card from "../../components/Cards/Card.vue";
 
 export default {
   components: {
@@ -83,13 +83,11 @@ export default {
   },
   methods: {
     deleteFeedbackForm(id) {
-      axios
-        .delete("api/assessment/form/" + id)
-        .then((response) => {
-          // let i = this.products.map((data) => data.id).indexOf(id);
-          // this.products.splice(i, 1);
-          this.info = response.data.data;
-        });
+      axios.delete("api/assessment/form/" + id).then((response) => {
+        // let i = this.products.map((data) => data.id).indexOf(id);
+        // this.products.splice(i, 1);
+        this.info = response.data.data;
+      });
     },
 
     toggleModal() {

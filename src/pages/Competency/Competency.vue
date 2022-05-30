@@ -2,7 +2,7 @@
   <div class="content">
     <div class="col-12">
       <div class="float-right">
-        <router-link to="company_create" class="btn btn-success"
+        <router-link to="competency_create" class="btn btn-success"
           >Add</router-link
         >
       </div>
@@ -11,57 +11,56 @@
           <thead>
             <tr>
               <slot name="columns">
-                <th>Company Title</th>
-                <th>Website</th>
-                <th>Phone</th>
-                <th>Country</th>
+                <th>competency Title</th>
+                <th>Description</th>
+                <th>Competency Type</th>
+                <th>Parent Competency</th>
                 <th>Actions</th>
               </slot>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(each, index) in info" :key="index">
+            <tr v-for="(item, index) in info" :key="index">
               <td>
-                {{ each.name }}
+                {{ item.competency_title }}
               </td>
               <td>
-                {{ each.website }}
+                {{ item.description }}
               </td>
               <td>
-                {{ each.phone1 }}
+                {{ item.competency_type }}
               </td>
               <td>
-                {{ each.country }}
+                {{ item.parent_competency }}
               </td>
               <td>
-                <!-- view -->
-                <!-- <button class="btn" @click="toggleModal">
+                <!-- View is implemented -->
+
+                <!-- <button class="btn" @click="toggleModal(info[index])">
                   <i class="fa fa-eye"></i>
                 </button>
 
                 <view-model
                   v-if="isShowModal"
                   @close="toggleModal"
-                  v-bind:each="each"
-                  :title="each.description"
+                  :item="item.id"
                 /> -->
 
-                <button class="btn btn-danger" @click="deleteCompany(each.id)">
+                <button
+                  class="btn btn-danger"
+                  @click="deleteCompetency(item.id)"
+                >
                   <i class="fa fa-trash"></i>
                 </button>
-                <!-- <router-link to="competency_create" class="btn btn-success"
-                  >Edit</router-link
-                > -->
                 <router-link
                   :to="{
-                    path: '/company_edit/' + each.id,
-                    name: 'Company Edit',
-                    params: { each: each },
+                    path: '/competency_edit/',
+                    name: 'Competency Edit',
+                    params: { competency: item },
                   }"
                   class="btn btn-success"
                   >Edit</router-link
                 >
-
                 <div class="btn-group" role="group"></div>
               </td>
             </tr>
@@ -72,22 +71,39 @@
   </div>
 </template>
 <script>
+import BaseTable from "@/components/BaseTable";
 import axios from "axios";
 import Card from "../../components/Cards/Card.vue";
+import ViewModel from "../../components/ViewModel.vue";
+
+const tableColumns = [
+  "competency_title",
+  "description",
+  "competency_type",
+  "parent_competency",
+];
 
 export default {
   components: {
     Card,
+    BaseTable,
+    ViewModel,
   },
   data() {
     return {
+      table1: {
+        title: "Orginataion",
+        columns: [...tableColumns],
+        data: this.info,
+      },
       info: this.info,
       isShowModal: false,
+      data_item: this.data_item,
     };
   },
   mounted: function () {
     axios
-      .get("api/organization")
+      .get("api/competency")
       .then((response) => {
         this.info = response.data;
       })
@@ -97,17 +113,16 @@ export default {
       });
   },
   methods: {
-    deleteCompany(id) {
-      debugger;
-      axios.delete("api/organization/" + id).then((response) => {
-        // let i = this.products.map((data) => data.id).indexOf(id);
-        // this.products.splice(i, 1);
+    deleteCompetency(id) {
+      axios.delete("api/competency/" + id).then((response) => {
         this.info = response.data.data;
       });
     },
 
-    toggleModal() {
+    toggleModal(id) {
       this.isShowModal = !this.isShowModal;
+      this.data_item = id;
+      console.log(id);
     },
   },
 };
