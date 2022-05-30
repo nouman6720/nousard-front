@@ -67,12 +67,12 @@
 import axios from "axios";
 
 export default {
-  props: {
-    item:{
-       type: Object,
-       default: {}
-     },
-  },
+  // props: {
+  //   item:{
+  //      type: Object,
+  //      default: {}
+  //    },
+  // },
   // props: ['item'],
   data() {
     return {
@@ -86,7 +86,7 @@ export default {
       com: {},
       isShowSubTechnical: false,
       info: this.info,
-      id: 2
+      id: 2,
     };
   },
   methods: {

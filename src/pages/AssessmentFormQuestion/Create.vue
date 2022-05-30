@@ -1,16 +1,14 @@
 <template>
   <div class="content">
-    <h3 class="text-center" style="color: black">Add Question in Feedback Form</h3>
+    <h3 class="text-center" style="color: black">
+      Add Question in Feedback Form
+    </h3>
     <div class="row" style="margin-left: 30%; color: black">
       <div class="col-md-6">
         <form @submit.prevent="addAssessmentFormQuestion">
           <div class="form-group">
             <label>Assessment Question</label>
-            <select
-              class="form-control"
-              v-model="data.question_id"
-              required
-            >
+            <select class="form-control" v-model="data.question_id" required>
               <option>Choose Province</option>
               <option
                 v-for="(option, key) in assessment_question"
@@ -23,11 +21,7 @@
           </div>
           <div class="form-group">
             <label>Assessment Form</label>
-            <select
-              class="form-control"
-              v-model="data.form_id"
-              required
-            >
+            <select class="form-control" v-model="data.form_id" required>
               <option>Choose Province</option>
               <option
                 v-for="(option, key) in assessment_form"
@@ -58,28 +52,28 @@ export default {
     };
   },
   mounted: function () {
-      axios
-        .get("api/assessment/form")
-        .then((response) => {
-          this.assessment_form = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        });
-        axios
-        .get("api/assessment/question")
-        .then((response) => {
-          this.assessment_question = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        });
+    axios
+      .get("api/assessment/form")
+      .then((response) => {
+        this.assessment_form = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      });
+    axios
+      .get("api/assessment/question")
+      .then((response) => {
+        this.assessment_question = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      });
   },
   methods: {
     addAssessmentFormQuestion() {
-        debugger
+      debugger;
       this.com["assessment_form_question"] = this.data;
       axios
         .post("api/form/question", this.com)
@@ -91,7 +85,7 @@ export default {
     },
     // getForms() {
     //   debugger;
-      
+
     // },
   },
 };

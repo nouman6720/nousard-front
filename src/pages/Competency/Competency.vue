@@ -5,14 +5,6 @@
         <router-link to="competency_create" class="btn btn-success"
           >Add</router-link
         >
-
-        <!-- <router-link to="/about" custom v-slot="{ navigate }">
-  <span @click="navigate" @keypress.enter="navigate" role="link">About Us</span>
-</router-link> -->
-
-        <!-- <button type="button" class="btn btn-danger btn-floating">
-          <i class="fas fa-magic"></i>
-        </button> -->
       </div>
       <card>
         <table class="table tablesorter">
@@ -42,14 +34,9 @@
                 {{ item.parent_competency }}
               </td>
               <td>
-                <!-- <button class="btn"><i class="fa fa-edit"></i></button> -->
+                <!-- View is implemented -->
 
-                <!-- <button class="btn" @click="toggleModal">
-                  <i class="fa fa-eye"></i>
-                </button> -->
-                <!-- <view-model v-if="isShowModal" /> -->
-
-                <button class="btn" @click="toggleModal(info[index])">
+                <!-- <button class="btn" @click="toggleModal(info[index])">
                   <i class="fa fa-eye"></i>
                 </button>
 
@@ -57,7 +44,7 @@
                   v-if="isShowModal"
                   @close="toggleModal"
                   :item="item.id"
-                />
+                /> -->
 
                 <button
                   class="btn btn-danger"
@@ -65,82 +52,25 @@
                 >
                   <i class="fa fa-trash"></i>
                 </button>
-                <router-link to="competency_create" class="btn btn-success"
+                <router-link
+                  :to="{
+                    path: '/competency_edit/',
+                    name: 'Competency Edit',
+                    params: { competency: item },
+                  }"
+                  class="btn btn-success"
                   >Edit</router-link
                 >
-                <!-- <div id="app">
-                  <div class="container">
-                    <button
-                      class="btn btn-info"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      show modal
-                    </button>
-                    <competency-create></competency-create>
-                  </div>
-                </div> -->
-                <!-- <router-link to= "/create" class="nav-item nav-link" >Create Product< /router-link> -->
-
-                <div class="btn-group" role="group">
-                  <!-- <router-link: to="{name: 'edit', params: {id: product.id}}" class="btn btn-success">Edit</router-link> -->
-                  <!-- <button class="btn btn-danger" @click="deleteProduct(product.id)">Delete</button> -->
-                </div>
+                <div class="btn-group" role="group"></div>
               </td>
             </tr>
           </tbody>
         </table>
-        <!-- <button class="btn" @click="toggleModal">
-          <i class="fa fa-eye"></i>
-        </button> -->
-
-        <!-- <ViewModel v-if="isShowModal" @close="toggleModal" /> -->
-        <!-- <base-button type="primary" block @click="notifyVue('top', 'center')">Top Center</base-button> -->
-
-        <!-- Modal -->
-        <!-- <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Save changes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </card>
     </div>
   </div>
 </template>
 <script>
-// import {
-//   Card
-// } from "@/components/index";
-
 import BaseTable from "@/components/BaseTable";
 import axios from "axios";
 import Card from "../../components/Cards/Card.vue";
@@ -184,13 +114,9 @@ export default {
   },
   methods: {
     deleteCompetency(id) {
-      axios
-        .delete("api/competency/" + id)
-        .then((response) => {
-          // let i = this.products.map((data) => data.id).indexOf(id);
-          // this.products.splice(i, 1);
-          this.info = response.data.data;
-        });
+      axios.delete("api/competency/" + id).then((response) => {
+        this.info = response.data.data;
+      });
     },
 
     toggleModal(id) {

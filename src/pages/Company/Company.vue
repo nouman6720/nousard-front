@@ -56,7 +56,7 @@
                   :to="{
                     path: '/company_edit/' + each.id,
                     name: 'Company Edit',
-                    params: {each: each } ,
+                    params: { each: each },
                   }"
                   class="btn btn-success"
                   >Edit</router-link
@@ -99,13 +99,11 @@ export default {
   methods: {
     deleteCompany(id) {
       debugger;
-      axios
-        .delete("api/organization/" + id)
-        .then((response) => {
-          // let i = this.products.map((data) => data.id).indexOf(id);
-          // this.products.splice(i, 1);
-          this.info = response.data.data;
-        });
+      axios.delete("api/organization/" + id).then((response) => {
+        // let i = this.products.map((data) => data.id).indexOf(id);
+        // this.products.splice(i, 1);
+        this.info = response.data.data;
+      });
     },
 
     toggleModal() {
