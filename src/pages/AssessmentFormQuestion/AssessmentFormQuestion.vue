@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="float-right">
         <router-link
-          to="asseessment_form_question_create"
+          to="assessment_form_question_create"
           class="btn btn-success"
           >Add</router-link
         >

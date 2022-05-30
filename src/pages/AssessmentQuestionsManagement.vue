@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="float-right">
-        <router-link to="asseessment_question_create" class="btn btn-success"
+        <router-link to="assessment_question_create" class="btn btn-success"
           >Add</router-link
         >
         <!-- <button type="button" class="btn btn-danger btn-floating">

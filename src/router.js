@@ -11,15 +11,16 @@ import TableList from "@/pages/TableList.vue";
 import CreateCompetency from "@/pages/competencyCreate.vue";
 import AssessmentQuestionsManagement from "@/pages/AssessmentQuestionsManagement.vue";
 import Competency from "@/pages/Competency.vue";
-import AsseessmentQuestionCreate from "@/pages/AssessmentQuestionManagement/AssessmentCreate.vue";
+import AssessmentQuestionCreate from "@/pages/AssessmentQuestionManagement/AssessmentCreate.vue";
 import DefaultFeedbackForm from "@/pages/DefaultFeedbackForm.vue";
 import FeedbackFormCreate from "@/pages/FeedbackForm/Create.vue";
 
-import AsseessmentFormQuestion from "@/pages/AssessmentFormQuestion/AssessmentFormQuestion.vue";
-import AsseessmentFormQuestionCreate from "@/pages/AssessmentFormQuestion/Create.vue";
+import AssessmentFormQuestion from "@/pages/AssessmentFormQuestion/AssessmentFormQuestion.vue";
+import AssessmentFormQuestionCreate from "@/pages/AssessmentFormQuestion/Create.vue";
 
 import Company from "@/pages/Company/Company.vue";
 import CompanyCreate from "@/pages/Company/Create.vue";
+import CompanyEdit from "@/pages/Company/Edit.vue";
 
 import LogInPage from "@/pages/LogInPage.vue";
 
@@ -86,9 +87,9 @@ const routes = [
         props: true
       },
       {
-        path: 'asseessment_question_create',
+        path: 'assessment_question_create',
         name: 'Assessment Question Create',
-        component: AsseessmentQuestionCreate
+        component: AssessmentQuestionCreate
       },
       {
         path: 'feedback_form_create',
@@ -101,18 +102,18 @@ const routes = [
         component: DefaultFeedbackForm,
       },
       {
-        path: 'asseessment_form_question',
-        name: 'Asseessment Form Question',
-        component: AsseessmentFormQuestion
+        path: 'assessment_form_question',
+        name: 'Assessment Form Question',
+        component: AssessmentFormQuestion
       },
       {
-        path: "asseessment_form_question_create",
-        name: "Asseessment Form Question Create",
-        component: AsseessmentFormQuestionCreate,
+        path: "assessment_form_question_create",
+        name: "Assessment Form Question Create",
+        component: AssessmentFormQuestionCreate,
       },
       {
         path: 'company',
-        name: 'Company Managment',
+        name: 'Company Management',
         component: Company,
         props: true
       },
@@ -120,6 +121,12 @@ const routes = [
         path: "company_create",
         name: "Company Create",
         component: CompanyCreate,
+      },
+      {
+        path: "company_edit",
+        name: "Company Edit",
+        component: CompanyEdit,
+        props: true
       },
 
     ],

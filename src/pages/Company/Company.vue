@@ -20,18 +20,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in info" :key="index">
+            <tr v-for="(each, index) in info" :key="index">
               <td>
-                {{ item.name }}
+                {{ each.name }}
               </td>
               <td>
-                {{ item.website }}
+                {{ each.website }}
               </td>
               <td>
-                {{ item.phone1 }}
+                {{ each.phone1 }}
               </td>
               <td>
-                {{ item.country }}
+                {{ each.country }}
               </td>
               <td>
                 <!-- view -->
@@ -42,11 +42,11 @@
                 <view-model
                   v-if="isShowModal"
                   @close="toggleModal"
-                  v-bind:item="item"
-                  :title="item.description"
+                  v-bind:each="each"
+                  :title="each.description"
                 /> -->
 
-                <button class="btn btn-danger" @click="deleteCompany(item.id)">
+                <button class="btn btn-danger" @click="deleteCompany(each.id)">
                   <i class="fa fa-trash"></i>
                 </button>
                 <!-- <router-link to="competency_create" class="btn btn-success"
@@ -54,9 +54,9 @@
                 > -->
                 <router-link
                   :to="{
-                    path: '/competency_create/' + item.id,
-                    name: 'competency_create',
-                    params: {item: item } ,
+                    path: '/company_edit/' + each.id,
+                    name: 'Company Edit',
+                    params: {each: each } ,
                   }"
                   class="btn btn-success"
                   >Edit</router-link

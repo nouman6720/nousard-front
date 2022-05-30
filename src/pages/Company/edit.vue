@@ -9,7 +9,7 @@
             <input
               type="text"
               class="form-control"
-              v-model="data.name"
+              v-model="each.name"
             />
           </div>
           <div class="form-group">
@@ -17,7 +17,7 @@
             <input
               type="text"
               class="form-control"
-              v-model="data.website"
+              v-model="each.website"
             />
           </div>
           <div class="form-group">
@@ -25,7 +25,7 @@
             <input
               type="text"
               class="form-control"
-              v-model="data.phone1"
+              v-model="each.phone1"
             />
           </div>
           <div class="form-group">
@@ -33,7 +33,7 @@
             <input
               type="text"
               class="form-control"
-              v-model="data.address1"
+              v-model="each.address1"
             />
           </div>
           <div class="form-group">
@@ -41,7 +41,7 @@
             <input
               type="text"
               class="form-control"
-              v-model="data.city"
+              v-model="each.city"
             />
           </div>
           <div class="form-group">
@@ -49,7 +49,7 @@
             <input
               type="text"
               class="form-control"
-              v-model="data.country"
+              v-model="each.country"
             />
           </div>
           <button type="submit" class="btn btn-primary">Create</button>
@@ -63,7 +63,7 @@
 import axios from "axios";
 
 export default {
-    props: ['item'],
+    props: ['each'],
   data() {
     return {
       data: {},
@@ -72,20 +72,15 @@ export default {
   },
   methods: {
     updateCompany() {
-      debugger;
-      this.com["org"] = this.data;
+      this.com["org"] = this.each;
       axios
-        .post("api/organization", this.com)
+        .patch(`api/organization/` + this.each.id, this.com)
         .then((response) =>
-          this.$router.push({ name: "Company Managment" })
+          this.$router.push({ name: "Company Management" })
         )
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
     },
-    // getForms() {
-    //   debugger;
-
-    // },
   },
 };
 </script>

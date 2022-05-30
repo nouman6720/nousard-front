@@ -52,7 +52,7 @@
       <sidebar-link to="/assessment_questions_management">
         <i class="fas fa-building"></i>
         <template v-if="!isRTL">
-          <p>Assessment Questions Management</p>
+          <p>Assessment Questions</p>
         </template>
         <template v-else>
           <p></p>
@@ -67,10 +67,10 @@
           <p></p>
         </template>
       </sidebar-link>
-      <sidebar-link to="/asseessment_form_question">
+      <sidebar-link to="/assessment_form_question">
         <i class="fas fa-building"></i>
         <template v-if="!isRTL">
-          <p>Asseessment Form Question</p>
+          <p>Assessment Form Question</p>
         </template>
         <template v-else>
           <p></p>

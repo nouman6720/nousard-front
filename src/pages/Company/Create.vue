@@ -71,7 +71,6 @@ export default {
   },
   methods: {
     addCompany() {
-      debugger;
       this.com["org"] = this.data;
       axios
         .post("api/organization", this.com)
@@ -81,10 +80,6 @@ export default {
         .catch((err) => console.log(err))
         .finally(() => (this.loadin = false));
     },
-    // getForms() {
-    //   debugger;
-
-    // },
   },
 };
 </script>
