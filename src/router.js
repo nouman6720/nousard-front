@@ -28,7 +28,7 @@ import EditAssessmentFormQuestion from "@/pages/AssessmentFormQuestion/Edit.vue"
 
 import Company from "@/pages/Company/Company.vue";
 import CompanyCreate from "@/pages/Company/Create.vue";
-import CompanyEdit from "@/pages/Company/Edit.vue";
+import CompanyEdit from "@/pages/Company/edit.vue";
 
 import LogInPage from "@/pages/LogInPage.vue";
 
